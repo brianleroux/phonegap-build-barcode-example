@@ -1,1 +1,17 @@
-<script src=phonegap.js></script><script>alert('lols')</script>
+<script src=phonegap.js></script>
+
+<script>
+document.addEventListener('deviceready', function() {
+ 
+  cordova.plugins.barcodeScanner.scan(
+    function win(result) {
+      alert("Result: " + result.text + "\nFormat: " + result.format + "\nCancelled: " + result.cancelled)
+    },
+    function fail(error) {
+      alert("Scanning failed: " + error)
+    }
+  )
+  
+// -- 
+})
+</script>
